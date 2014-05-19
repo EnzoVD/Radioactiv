@@ -446,7 +446,7 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
                     int value = (Integer) data;
                     At prov = Princip.getElemListeElem(row);
                     prov.setpopIni(value);
-                    prov.setpop1(value);
+                    prov.setpopAct(value);
                     Princip.setElemListeElem(row, prov);
 
                 }

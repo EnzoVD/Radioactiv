@@ -633,26 +633,19 @@ public class Princip {
     public void desint1() {
         At atome;
         for (int i = 0; i < ListeElem.size(); i++) {
-            atome = ListeElem.get(i);
-            atome.setajoutPop(0);
-            ListeElem.set(i, atome);
-        }
-        
-        for (int i = 0; i < ListeElem.size(); i++) {
             atome = ListeElem.get(i);     
             desintAtCorr3(atome);
             ListeElem.set(i, atome);
         }
         for (int i = 0; i < ListeElem.size(); i++) {
             atome = ListeElem.get(i);
-            atome.setpop2(atome.getpop1() + atome.getajoutPop());
+            
+            atome.setpopAct(atome.getpopAct()+atome.getajoutPop());
             atome.activite();
-
             atome.addPointAct();
-            atome.setpopAct(atome.getpop2());
-            atome.setpop1(atome.getpopAct());
+           
             atome.addPointPop();
-            atome.setpop2(0);
+            
             atome.setajoutPop(0);
             ListeElem.set(i, atome);
         }
@@ -774,7 +767,13 @@ public class Princip {
             data[i][6] = secToTime(atome.getdVie());
             data[i][7] = typeintToTypeString(atome.gettype());
             data[i][8] = atome.getpopIni();
-            data[i][9] = atome.getpop1();
+           // if(startSim==false){
+            //    data[i][9] = atome.getpopIni();
+           // }
+           // else{
+                data[i][9] = atome.getpopAct();
+           // }
+            
             data[i][10] = atome.getactivite();
 
         }
