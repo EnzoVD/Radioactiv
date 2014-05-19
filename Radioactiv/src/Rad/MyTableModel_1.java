@@ -18,7 +18,7 @@ public class MyTableModel_1 extends AbstractTableModel implements TableModel {
     public MyTableModel_1() {
         super();
     }
-    static protected String[] columnNames = {"Affichage","Nom","Abréviation","A","Z","N","Demie-Vie","Type de désintégration","Population Initial", "Population Actuelle", "Activité"};
+    static protected String[] columnNames = {"Affichage","Nom","Abréviation","A","Z","N","Demie-Vie","Type de désintégration","Population Initiale", "Population Actuelle", "Activité"};
     private Object[][] data=Princip.listTo2dTab();
     
     

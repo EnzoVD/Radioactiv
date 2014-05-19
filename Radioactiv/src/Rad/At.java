@@ -207,11 +207,11 @@ public class At {
         return tab3;
     }
     
-}
+
 
 
     public double getgamma() {
-        return sumgamma;
+        return gamma;
     }
 
 
@@ -219,11 +219,12 @@ public class At {
         gamma=g;
     }
     
-    public double getgamma() {
-        return sumgamma;
+    public double getsumgamma() {
+        return sumGamma;
     }
 
 
     public void setSumGamma(double g) {
-        sumgamma=g;
+        sumGamma=g;
     }
+}
