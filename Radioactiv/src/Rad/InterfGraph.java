@@ -41,8 +41,8 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         PropertyChangeListener delayListener = new PropertyChangeListener() {
             public void propertyChange(PropertyChangeEvent e) {
                 Object source = e.getSource();
-                if (source == jFormattedTextField1 || source == jFormattedTextField2 ||
-                    source == jFormattedTextField3 || source == jFormattedTextField4) {
+                    if (source == jFormattedTextField1 || (source == jFormattedTextField2 & Double.parseDouble(jFormattedTextField2.getText().replace(" ","")) <365 ) ||( source == jFormattedTextField3 & Double.parseDouble(jFormattedTextField3.getText().replace(" ","")) <60 ) ||
+                        (source == jFormattedTextField4 & Double.parseDouble(jFormattedTextField4.getText().replace(" ","")) <60 )) {
                     getDelayAffiche();
                 }
             }
@@ -181,19 +181,19 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
                 jFormattedTextField1PropertyChange(evt);
             }
         });
-        jFormattedTextField1.setBounds(1160, 730, 10, 19);
+        jFormattedTextField1.setBounds(1160, 730, 100, 19);
         jDesktopPane1.add(jFormattedTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jFormattedTextField2.setText("0");
-        jFormattedTextField2.setBounds(1160, 760, 10, 19);
+        jFormattedTextField2.setBounds(1160, 760, 100, 19);
         jDesktopPane1.add(jFormattedTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jFormattedTextField3.setText("0");
-        jFormattedTextField3.setBounds(1160, 790, 10, 19);
+        jFormattedTextField3.setBounds(1160, 790, 100, 19);
         jDesktopPane1.add(jFormattedTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jFormattedTextField4.setText("1");
-        jFormattedTextField4.setBounds(1160, 820, 10, 19);
+        jFormattedTextField4.setBounds(1160, 820, 100, 19);
         jDesktopPane1.add(jFormattedTextField4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel2.setText("1 seconde =");
@@ -201,19 +201,19 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         jDesktopPane1.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel3.setText("Année(s)");
-        jLabel3.setBounds(1290, 730, 50, 14);
+        jLabel3.setBounds(1270, 730, 50, 14);
         jDesktopPane1.add(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel4.setText("Jour(s)");
-        jLabel4.setBounds(1290, 760, 40, 14);
+        jLabel4.setBounds(1270, 760, 40, 14);
         jDesktopPane1.add(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel5.setText("Minute(s)");
-        jLabel5.setBounds(1290, 790, 50, 14);
+        jLabel5.setBounds(1270, 790, 50, 14);
         jDesktopPane1.add(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel6.setText("Seconde(s)");
-        jLabel6.setBounds(1290, 820, 60, 14);
+        jLabel6.setBounds(1270, 820, 60, 14);
         jDesktopPane1.add(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTextField2.setText("jTextField2");
@@ -229,17 +229,17 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1395, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -518,9 +518,9 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
     @Override
     public void propertyChange(PropertyChangeEvent e) {
         Object source = e.getSource();
-        if (source == jFormattedTextField1 || source == jFormattedTextField2 || source == jFormattedTextField3 ||
-            source == jFormattedTextField4) {
-            
+        if (source == jFormattedTextField1 || (source == jFormattedTextField2 & Double.parseDouble(jFormattedTextField2.getText().replace(" ","")) <365 ) ||( source == jFormattedTextField3 & Double.parseDouble(jFormattedTextField3.getText().replace(" ","")) <60 ) ||
+            (source == jFormattedTextField4 & Double.parseDouble(jFormattedTextField4.getText().replace(" ","")) <60 )) {
+            getDelayAffiche();
             
         }
         

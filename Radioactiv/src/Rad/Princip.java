@@ -91,7 +91,7 @@ public class Princip {
         displayGraph();
         fen.setjTable1();
         fen.refreshTab();
-        fen.repaint();
+        //fen.repaint();
 
     }
 
