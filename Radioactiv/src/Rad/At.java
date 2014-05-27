@@ -10,11 +10,11 @@ public class At {
     protected int Z;
     protected int N;
     protected int type;
-    protected int pop2;
+    protected double pop2;
     protected double popAct;
     protected double ajoutPop;
-    protected int pop1;
-    protected int popIni;
+    protected double pop1;
+    protected double popIni;
     protected boolean affiche;
     protected double activite;
     protected double gamma;
@@ -56,7 +56,7 @@ public class At {
         return type;
     }
 
-    public int getpop2() {
+    public double getpop2() {
         return pop2;
     }
     
@@ -68,11 +68,11 @@ public class At {
         return ajoutPop;
     }
 
-    public int getpop1() {
+    public double getpop1() {
         return pop1;
     }
 
-    public int getpopIni() {
+    public double getpopIni() {
         return popIni;
     }
 
@@ -108,7 +108,7 @@ public class At {
         type = p;
     }
 
-    public void setpop2(int p2) {
+    public void setpop2(double p2) {
         pop2 = p2;
     }
     
@@ -120,11 +120,11 @@ public class At {
         ajoutPop = aj;
     }
 
-    public void setpop1(int p1) {
+    public void setpop1(double p1) {
         pop1 = p1;
     }
 
-    public void setpopIni(int pi) {
+    public void setpopIni(double pi) {
         popIni = pi;
     }
 

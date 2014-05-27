@@ -37,12 +37,13 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
     public InterfGraph() {
         initComponents();
         customInitComponents();
+        getDelayAffiche();
         PropertyChangeListener delayListener = new PropertyChangeListener() {
             public void propertyChange(PropertyChangeEvent e) {
                 Object source = e.getSource();
                 if (source == jFormattedTextField1 || source == jFormattedTextField2 ||
                     source == jFormattedTextField3 || source == jFormattedTextField4) {
-                    updateDelay();
+                    getDelayAffiche();
                 }
             }
         };
@@ -146,7 +147,7 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         jButton1.setBounds(660, 780, 55, 21);
         jDesktopPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setText("0");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -174,25 +175,25 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         jDesktopPane1.add(jTabbedPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jTabbedPane2.addTab("Activité", jPAct);
 
-        jFormattedTextField1.setText("jFormattedTextField1");
+        jFormattedTextField1.setText("0");
         jFormattedTextField1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jFormattedTextField1PropertyChange(evt);
             }
         });
-        jFormattedTextField1.setBounds(1160, 730, 107, 19);
+        jFormattedTextField1.setBounds(1160, 730, 10, 19);
         jDesktopPane1.add(jFormattedTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jFormattedTextField2.setText("jFormattedTextField2");
-        jFormattedTextField2.setBounds(1160, 760, 107, 19);
+        jFormattedTextField2.setText("0");
+        jFormattedTextField2.setBounds(1160, 760, 10, 19);
         jDesktopPane1.add(jFormattedTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jFormattedTextField3.setText("jFormattedTextField3");
-        jFormattedTextField3.setBounds(1160, 790, 107, 19);
+        jFormattedTextField3.setText("0");
+        jFormattedTextField3.setBounds(1160, 790, 10, 19);
         jDesktopPane1.add(jFormattedTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jFormattedTextField4.setText("jFormattedTextField4");
-        jFormattedTextField4.setBounds(1160, 820, 107, 19);
+        jFormattedTextField4.setText("1");
+        jFormattedTextField4.setBounds(1160, 820, 10, 19);
         jDesktopPane1.add(jFormattedTextField4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel2.setText("1 seconde =");
@@ -216,6 +217,11 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         jDesktopPane1.add(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTextField2.setText("jTextField2");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
         jTextField2.setBounds(140, 880, 1140, 19);
         jDesktopPane1.add(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -309,6 +315,10 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
     private void jFormattedTextField1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jFormattedTextField1PropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextField1PropertyChange
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -443,10 +453,10 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
 
             case 8:
                 {
-                    int value = (Integer) data;
+                    double value = (Double) data;
                     At prov = Princip.getElemListeElem(row);
                     prov.setpopIni(value);
-                    prov.setpopAct(value);
+                    if(Princip.getstartSim()==false){prov.setpopAct(value);}
                     Princip.setElemListeElem(row, prov);
 
                 }
@@ -459,6 +469,7 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
     public void updateDelay() {
         setDelayAffiche();
         getDelayAffiche();
+        
     }
     //affiche le delay dans les cases en bas à droite de l'interface: jformated textfields
     public void setDelayAffiche() {
@@ -488,16 +499,17 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         double an = Double.parseDouble(jFormattedTextField1.getText().replace(" ",""));
         jFormattedTextField1.setValue(an);
         t = t + an * 365 * 24 * 60;
-        double jours = Double.parseDouble(jFormattedTextField2.getText());
+        double jours = Double.parseDouble(jFormattedTextField2.getText().replace(" ",""));
         jFormattedTextField2.setValue(jours);
         t = t + jours * 24 * 60;
-        double min = Double.parseDouble(jFormattedTextField3.getText());
+        double min = Double.parseDouble(jFormattedTextField3.getText().replace(" ",""));
         jFormattedTextField3.setValue(min);
         t = t + min * 60;
-        double sec = Double.parseDouble(jFormattedTextField4.getText());
+        double sec = Double.parseDouble(jFormattedTextField4.getText().replace(" ",""));
         jFormattedTextField4.setValue(sec);
         t = t + sec;
         Princip.setdelay(t);
+        setDelayAffiche();
 
     }
    
@@ -508,7 +520,8 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         Object source = e.getSource();
         if (source == jFormattedTextField1 || source == jFormattedTextField2 || source == jFormattedTextField3 ||
             source == jFormattedTextField4) {
-            getDelayAffiche();
+            
+            
         }
         
     }
