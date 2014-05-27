@@ -41,17 +41,18 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         PropertyChangeListener delayListener = new PropertyChangeListener() {
             public void propertyChange(PropertyChangeEvent e) {
                 Object source = e.getSource();
-                    if (source == jFormattedTextField1 || (source == jFormattedTextField2 & Double.parseDouble(jFormattedTextField2.getText().replace(" ","")) <365 ) ||( source == jFormattedTextField3 & Double.parseDouble(jFormattedTextField3.getText().replace(" ","")) <60 ) ||
-                        (source == jFormattedTextField4 & Double.parseDouble(jFormattedTextField4.getText().replace(" ","")) <60 )) {
+                    if (source == jFormattedTextFieldYear || (source == jFormattedTextFieldDay & Double.parseDouble(jFormattedTextFieldDay.getText().replace(" ","")) <365 )|| (source == jFormattedTextFieldHour & Double.parseDouble(jFormattedTextFieldHour.getText().replace(" ","")) <24 )||( source == jFormattedTextFieldMin & Double.parseDouble(jFormattedTextFieldMin.getText().replace(" ","")) <60 ) ||
+                        (source == jFormattedTextFieldSec & Double.parseDouble(jFormattedTextFieldSec.getText().replace(" ","")) <60 )) {
                     getDelayAffiche();
                 }
             }
         };
         jTable1.getModel().addTableModelListener(this);
-        jFormattedTextField1.addPropertyChangeListener("value", delayListener);
-        jFormattedTextField2.addPropertyChangeListener("value", delayListener);
-        jFormattedTextField3.addPropertyChangeListener("value", delayListener);
-        jFormattedTextField4.addPropertyChangeListener("value", delayListener);
+        jFormattedTextFieldYear.addPropertyChangeListener("value", delayListener);
+        jFormattedTextFieldDay.addPropertyChangeListener("value", delayListener);
+        jFormattedTextFieldHour.addPropertyChangeListener("value", delayListener);
+        jFormattedTextFieldMin.addPropertyChangeListener("value", delayListener);
+        jFormattedTextFieldSec.addPropertyChangeListener("value", delayListener);
 
 
     }
@@ -80,16 +81,23 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         jButton2 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldYear = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldDay = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldMin = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldSec = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
+        jSliderYear = new javax.swing.JSlider();
+        jSliderDays = new javax.swing.JSlider();
+        jSliderMinutes = new javax.swing.JSlider();
+        jSliderSeconds = new javax.swing.JSlider();
+        jFormattedTextFieldHour = new javax.swing.JFormattedTextField();
+        jSliderHours = new javax.swing.JSlider();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -175,45 +183,45 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         jDesktopPane1.add(jTabbedPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jTabbedPane2.addTab("Activité", jPAct);
 
-        jFormattedTextField1.setText("0");
-        jFormattedTextField1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        jFormattedTextFieldYear.setText("0");
+        jFormattedTextFieldYear.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jFormattedTextField1PropertyChange(evt);
+                jFormattedTextFieldYearPropertyChange(evt);
             }
         });
-        jFormattedTextField1.setBounds(1160, 730, 100, 19);
-        jDesktopPane1.add(jFormattedTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jFormattedTextFieldYear.setBounds(1160, 700, 100, 19);
+        jDesktopPane1.add(jFormattedTextFieldYear, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jFormattedTextField2.setText("0");
-        jFormattedTextField2.setBounds(1160, 760, 100, 19);
-        jDesktopPane1.add(jFormattedTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jFormattedTextFieldDay.setText("0");
+        jFormattedTextFieldDay.setBounds(1160, 730, 100, 19);
+        jDesktopPane1.add(jFormattedTextFieldDay, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jFormattedTextField3.setText("0");
-        jFormattedTextField3.setBounds(1160, 790, 100, 19);
-        jDesktopPane1.add(jFormattedTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jFormattedTextFieldMin.setText("0");
+        jFormattedTextFieldMin.setBounds(1160, 790, 100, 19);
+        jDesktopPane1.add(jFormattedTextFieldMin, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jFormattedTextField4.setText("1");
-        jFormattedTextField4.setBounds(1160, 820, 100, 19);
-        jDesktopPane1.add(jFormattedTextField4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jFormattedTextFieldSec.setText("1");
+        jFormattedTextFieldSec.setBounds(1160, 820, 100, 19);
+        jDesktopPane1.add(jFormattedTextFieldSec, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel2.setText("1 seconde =");
-        jLabel2.setBounds(1180, 700, 80, 20);
+        jLabel2.setBounds(1180, 660, 80, 20);
         jDesktopPane1.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel3.setText("Année(s)");
-        jLabel3.setBounds(1270, 730, 50, 14);
+        jLabel3.setBounds(1270, 700, 50, 14);
         jDesktopPane1.add(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel4.setText("Jour(s)");
-        jLabel4.setBounds(1270, 760, 40, 14);
+        jLabel4.setBounds(1270, 730, 50, 14);
         jDesktopPane1.add(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel5.setText("Minute(s)");
-        jLabel5.setBounds(1270, 790, 50, 14);
+        jLabel5.setBounds(1270, 790, 60, 14);
         jDesktopPane1.add(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel6.setText("Seconde(s)");
-        jLabel6.setBounds(1270, 820, 60, 14);
+        jLabel6.setBounds(1270, 820, 80, 14);
         jDesktopPane1.add(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTextField2.setText("jTextField2");
@@ -224,6 +232,69 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         });
         jTextField2.setBounds(140, 880, 1140, 19);
         jDesktopPane1.add(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jSliderYear.setMaximum(30);
+        jSliderYear.setValue(0);
+        jSliderYear.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderYearStateChanged(evt);
+            }
+        });
+        jSliderYear.setBounds(950, 700, 200, 16);
+        jDesktopPane1.add(jSliderYear, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jSliderDays.setMaximum(365);
+        jSliderDays.setValue(0);
+        jSliderDays.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderDaysStateChanged(evt);
+            }
+        });
+        jSliderDays.setBounds(950, 730, 200, 16);
+        jDesktopPane1.add(jSliderDays, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jSliderMinutes.setMaximum(60);
+        jSliderMinutes.setValue(0);
+        jSliderMinutes.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderMinutesStateChanged(evt);
+            }
+        });
+        jSliderMinutes.setBounds(950, 790, 200, 16);
+        jDesktopPane1.add(jSliderMinutes, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jSliderSeconds.setMaximum(60);
+        jSliderSeconds.setValue(1);
+        jSliderSeconds.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderSecondsStateChanged(evt);
+            }
+        });
+        jSliderSeconds.setBounds(950, 820, 200, 16);
+        jDesktopPane1.add(jSliderSeconds, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jFormattedTextFieldHour.setText("0");
+        jFormattedTextFieldHour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldHourActionPerformed(evt);
+            }
+        });
+        jFormattedTextFieldHour.setBounds(1160, 760, 100, 19);
+        jDesktopPane1.add(jFormattedTextFieldHour, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jSliderHours.setMaximum(24);
+        jSliderHours.setValue(0);
+        jSliderHours.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderHoursStateChanged(evt);
+            }
+        });
+        jSliderHours.setBounds(950, 760, 200, 16);
+        jDesktopPane1.add(jSliderHours, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel7.setText("Heure(s)");
+        jLabel7.setBounds(1270, 760, 70, 14);
+        jDesktopPane1.add(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -312,13 +383,62 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         Princip.resetButton();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jFormattedTextField1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jFormattedTextField1PropertyChange
+    private void jFormattedTextFieldYearPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jFormattedTextFieldYearPropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1PropertyChange
+    }//GEN-LAST:event_jFormattedTextFieldYearPropertyChange
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jFormattedTextFieldHourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldHourActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldHourActionPerformed
+
+    private void jSliderSecondsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderSecondsStateChanged
+    JSlider source = jSliderSeconds;
+    if (!source.getValueIsAdjusting()) {
+        int sec = jSliderSeconds.getValue();
+        jFormattedTextFieldSec.setText(String.valueOf(sec));
+        jFormattedTextFieldSec.setValue(sec);
+    }
+    }//GEN-LAST:event_jSliderSecondsStateChanged
+
+    private void jSliderMinutesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderMinutesStateChanged
+    JSlider source = jSliderMinutes;
+    if (!source.getValueIsAdjusting()) {
+        int min = jSliderMinutes.getValue();
+        jFormattedTextFieldMin.setText(String.valueOf(min));
+        jFormattedTextFieldMin.setValue(min);
+    }
+    }//GEN-LAST:event_jSliderMinutesStateChanged
+
+    private void jSliderHoursStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderHoursStateChanged
+    JSlider source = jSliderHours;
+    if (!source.getValueIsAdjusting()) {
+        int hour = jSliderHours.getValue();
+        jFormattedTextFieldHour.setText(String.valueOf(hour));
+        jFormattedTextFieldHour.setValue(hour);
+    }
+    }//GEN-LAST:event_jSliderHoursStateChanged
+
+    private void jSliderDaysStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderDaysStateChanged
+        JSlider source = jSliderDays;
+        if (!source.getValueIsAdjusting()) {
+            int day = jSliderDays.getValue();
+            jFormattedTextFieldDay.setText(String.valueOf(day));
+            jFormattedTextFieldDay.setValue(day);
+        }
+    }//GEN-LAST:event_jSliderDaysStateChanged
+
+    private void jSliderYearStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderYearStateChanged
+    JSlider source = jSliderYear;
+    if (!source.getValueIsAdjusting()) {
+        int year = jSliderYear.getValue();
+        jFormattedTextFieldYear.setText(String.valueOf(year));
+        jFormattedTextFieldHour.setValue(year);
+    }        // TODO add your handling code here:
+    }//GEN-LAST:event_jSliderYearStateChanged
 
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -329,17 +449,24 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
+    private javax.swing.JFormattedTextField jFormattedTextFieldDay;
+    private javax.swing.JFormattedTextField jFormattedTextFieldHour;
+    private javax.swing.JFormattedTextField jFormattedTextFieldMin;
+    private javax.swing.JFormattedTextField jFormattedTextFieldSec;
+    private javax.swing.JFormattedTextField jFormattedTextFieldYear;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JSlider jSlideVitesse;
+    private javax.swing.JSlider jSliderDays;
+    private javax.swing.JSlider jSliderHours;
+    private javax.swing.JSlider jSliderMinutes;
+    private javax.swing.JSlider jSliderSeconds;
+    private javax.swing.JSlider jSliderYear;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     protected static javax.swing.JTable jTable1;
@@ -474,39 +601,46 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
     //affiche le delay dans les cases en bas à droite de l'interface: jformated textfields
     public void setDelayAffiche() {
         double t = Princip.getdelay();
-        double an = (Math.floor(t / (365 * 24 * 60)));
-        t = t - an * 365 * 24 * 60;
-        double jours = (Math.floor(t / (24 * 60)));
+        double an = (Math.floor(t / (365 * 24 * 60 * 60)));
+        t = t - an * 365 * 24 * 60*60;
+        double jours = (Math.floor(t / (24 * 60 * 60)));
         ;
-        t = t - jours * 24 * 60;
+        t = t - jours * 24 * 60 * 60;
+        double heure=(Math.floor(t / (60*60)));
+        t = t - heure * 60 * 60;
         double min = (Math.floor(t / (60)));
         ;
         t = t - min * 60;
         double sec = (Math.floor(t));
-        jFormattedTextField1.setText(String.valueOf(an));
-        jFormattedTextField1.setValue(an);
-        jFormattedTextField2.setText(String.valueOf(jours));
-        jFormattedTextField2.setValue(jours);
-        jFormattedTextField3.setText(String.valueOf(min));
-        jFormattedTextField3.setValue(min);
-        jFormattedTextField4.setText(String.valueOf(sec));
-        jFormattedTextField4.setValue(sec);
+        jFormattedTextFieldYear.setText(String.valueOf(an));
+        jFormattedTextFieldYear.setValue(an);
+        jFormattedTextFieldDay.setText(String.valueOf(jours));
+        jFormattedTextFieldDay.setValue(jours);
+        jFormattedTextFieldHour.setText(String.valueOf(heure));
+        jFormattedTextFieldHour.setValue(heure);
+        jFormattedTextFieldMin.setText(String.valueOf(min));
+        jFormattedTextFieldMin.setValue(min);
+        jFormattedTextFieldSec.setText(String.valueOf(sec));
+        jFormattedTextFieldSec.setValue(sec);
     }
 
     public void getDelayAffiche() {
         double t = 0;
 
-        double an = Double.parseDouble(jFormattedTextField1.getText().replace(" ",""));
-        jFormattedTextField1.setValue(an);
-        t = t + an * 365 * 24 * 60;
-        double jours = Double.parseDouble(jFormattedTextField2.getText().replace(" ",""));
-        jFormattedTextField2.setValue(jours);
-        t = t + jours * 24 * 60;
-        double min = Double.parseDouble(jFormattedTextField3.getText().replace(" ",""));
-        jFormattedTextField3.setValue(min);
+        double an = Double.parseDouble(jFormattedTextFieldYear.getText().replace(" ",""));
+        jFormattedTextFieldYear.setValue(an);
+        t = t + an * 365 * 24 * 60 * 60;
+        double jours = Double.parseDouble(jFormattedTextFieldDay.getText().replace(" ",""));
+        jFormattedTextFieldDay.setValue(jours);
+        t = t + jours * 24 * 60 * 60;
+        double heur = Double.parseDouble(jFormattedTextFieldHour.getText().replace(" ",""));
+        jFormattedTextFieldMin.setValue(heur);
+        t = t + heur * 60 * 60;
+        double min = Double.parseDouble(jFormattedTextFieldMin.getText().replace(" ",""));
+        jFormattedTextFieldMin.setValue(min);
         t = t + min * 60;
-        double sec = Double.parseDouble(jFormattedTextField4.getText().replace(" ",""));
-        jFormattedTextField4.setValue(sec);
+        double sec = Double.parseDouble(jFormattedTextFieldSec.getText().replace(" ",""));
+        jFormattedTextFieldSec.setValue(sec);
         t = t + sec;
         Princip.setdelay(t);
         setDelayAffiche();
@@ -518,8 +652,8 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
     @Override
     public void propertyChange(PropertyChangeEvent e) {
         Object source = e.getSource();
-        if (source == jFormattedTextField1 || (source == jFormattedTextField2 & Double.parseDouble(jFormattedTextField2.getText().replace(" ","")) <365 ) ||( source == jFormattedTextField3 & Double.parseDouble(jFormattedTextField3.getText().replace(" ","")) <60 ) ||
-            (source == jFormattedTextField4 & Double.parseDouble(jFormattedTextField4.getText().replace(" ","")) <60 )) {
+            if (source == jFormattedTextFieldYear || (source == jFormattedTextFieldDay & Double.parseDouble(jFormattedTextFieldDay.getText().replace(" ","")) <365 )|| (source == jFormattedTextFieldHour & Double.parseDouble(jFormattedTextFieldHour.getText().replace(" ","")) <24 )||( source == jFormattedTextFieldMin & Double.parseDouble(jFormattedTextFieldMin.getText().replace(" ","")) <60 ) ||
+                (source == jFormattedTextFieldSec & Double.parseDouble(jFormattedTextFieldSec.getText().replace(" ","")) <60 )) {
             getDelayAffiche();
             
         }
