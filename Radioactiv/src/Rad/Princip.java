@@ -428,14 +428,14 @@ public class Princip {
         double an = (Math.floor(prov / (365 * 24 * 60  * 60 )));
         prov = prov - an * 365 * 24 * 60  * 60 ;
         double jours = (Math.floor(prov / (24 * 60  * 60 )));
-        ;
+        
         prov = prov - jours * 24 * 60  * 60 ;
         
         double heur = (Math.floor(prov / (60  * 60 )));
-        ;
+        
         prov = prov - heur * 60*60;
         double min = (Math.floor(prov / (60)));
-        ;
+        
         prov = prov - min * 60;
         double sec = (Math.floor(prov));
         if (an != 0.0) {
@@ -495,16 +495,7 @@ public class Princip {
      * Impl�mentation Boutons
      */
     public static void testButton() {
-        /*At test = getElemListeElem(0);
-        test.setnom("coucou");
-        setElemListeElem(0, test);
-        test.toPrint();
-        At newat = test;
-        ListeElem.add(newat);
-        InterfGraph.setjTable1();
-        */
-
-        displayGraph();
+       
     }
 
     public static void resetButton() {

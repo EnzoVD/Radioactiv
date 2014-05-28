@@ -72,7 +72,6 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         Play = new javax.swing.JToggleButton();
         Stop = new javax.swing.JToggleButton();
         Pause = new javax.swing.JToggleButton();
-        jSlideVitesse = new JSlider(JSlider.HORIZONTAL,1, 100000000, 1000);
         ElementsTable = new javax.swing.JScrollPane();
         jTable1 = new JTable(new MyTableModel_1());
         jButton1 = new javax.swing.JButton();
@@ -130,14 +129,6 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         });
         Pause.setBounds(240, 780, 170, 21);
         jDesktopPane1.add(Pause, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jSlideVitesse.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSlideVitesseStateChanged(evt);
-            }
-        });
-        jSlideVitesse.setBounds(30, 860, 1330, 16);
-        jDesktopPane1.add(jSlideVitesse, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTable1.getTableHeader().setReorderingAllowed(false);
         ElementsTable.setViewportView(jTable1);
@@ -356,20 +347,6 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         Princip.pauseButton();
     }//GEN-LAST:event_PauseActionPerformed
 
-    private void jSlideVitesseStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlideVitesseStateChanged
-        
-        JSlider source = jSlideVitesse;
-        if (!source.getValueIsAdjusting()) {
-            double Vit = (double) source.getValue() / 1000;
-            
-             Princip.setdelay( ((Vit) * Princip.getT()));
-            setDelayAffiche();
-            System.out.println(Princip.getdelay());
-        }
-         
-        
-    }//GEN-LAST:event_jSlideVitesseStateChanged
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Princip.testButton();
@@ -436,7 +413,7 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
     if (!source.getValueIsAdjusting()) {
         int year = jSliderYear.getValue();
         jFormattedTextFieldYear.setText(String.valueOf(year));
-        jFormattedTextFieldHour.setValue(year);
+        jFormattedTextFieldYear.setValue(year);
     }        // TODO add your handling code here:
     }//GEN-LAST:event_jSliderYearStateChanged
 
@@ -461,7 +438,6 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JSlider jSlideVitesse;
     private javax.swing.JSlider jSliderDays;
     private javax.swing.JSlider jSliderHours;
     private javax.swing.JSlider jSliderMinutes;
@@ -604,12 +580,10 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         double an = (Math.floor(t / (365 * 24 * 60 * 60)));
         t = t - an * 365 * 24 * 60*60;
         double jours = (Math.floor(t / (24 * 60 * 60)));
-        ;
         t = t - jours * 24 * 60 * 60;
         double heure=(Math.floor(t / (60*60)));
         t = t - heure * 60 * 60;
         double min = (Math.floor(t / (60)));
-        ;
         t = t - min * 60;
         double sec = (Math.floor(t));
         jFormattedTextFieldYear.setText(String.valueOf(an));
@@ -634,7 +608,7 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         jFormattedTextFieldDay.setValue(jours);
         t = t + jours * 24 * 60 * 60;
         double heur = Double.parseDouble(jFormattedTextFieldHour.getText().replace(" ",""));
-        jFormattedTextFieldMin.setValue(heur);
+        jFormattedTextFieldHour.setValue(heur);
         t = t + heur * 60 * 60;
         double min = Double.parseDouble(jFormattedTextFieldMin.getText().replace(" ",""));
         jFormattedTextFieldMin.setValue(min);
