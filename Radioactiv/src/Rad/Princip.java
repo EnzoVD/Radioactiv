@@ -184,14 +184,9 @@ public class Princip {
             break;
         case 1:
             { //alpha
-                atome.setajoutPop(atome.getajoutPop() +
-                                  Math.ceil((atome.getpopAct()) *
-                                            (Math.expm1(-((getdelay()) * (Math.log(2) / atome.getdVie()))))));
-                System.out.println("popact " + atome.getpopAct() + "  ajoutpop" + atome.getajoutPop() +
-                                   "  constante rad " + Math.log(2) / atome.getdVie() + "    delay" + delay);
-                if (atome.getA() == 238) {
-                    fen.jTextField2.setText("test 1 " + Double.toString(atome.getpopAct()));
-                }
+                double add = Math.ceil((atome.getpopAct()) * (Math.expm1(-((getdelay()) * (Math.log(2) / atome.getdVie())))));
+                atome.setajoutPop(atome.getajoutPop() + add);
+
                 // loi decroissance radio N(t)=No*Exp(-At) A=ln 2/dVie
                 for (int i = 0; i < ListeElem.size(); i++) {
                     atomedes = ListeElem.get(i);
@@ -206,7 +201,7 @@ public class Princip {
                         ListeElem.set(i, atomedes);
                         At He =
                             ListeElem.get(posHel); // trouve �l�m Helium, pop1 pop pr�c�dente, pop2 nouvelle pop
-                        He.setajoutPop(He.getajoutPop() - atome.getajoutPop());
+                        He.setajoutPop(He.getajoutPop() - add);
                         ListeElem.set(posHel, He);
                     }
                 }
@@ -217,11 +212,9 @@ public class Princip {
         case 2:
             { //Beta moins
 
-                atome.setajoutPop(atome.getajoutPop() +
-                                  (int) Math.ceil((atome.getpopAct()) *
-                                                  (Math.expm1(-((getdelay()) *
-                                                                (Math.log(2) /
-                                                                 atome.getdVie())))))); // loi decroissance radio N(t)=No*Exp(-At) A=1/dVie
+                double add = Math.ceil((atome.getpopAct()) * (Math.expm1(-((getdelay()) * (Math.log(2) / atome.getdVie())))));
+                atome.setajoutPop(atome.getajoutPop() + add); // loi decroissance radio N(t)=No*Exp(-At) A=1/dVie
+                
                 for (int i = 0; i < ListeElem.size(); i++) {
                     atomedes = ListeElem.get(i);
                     if (((atomedes.getA()) == (atome.getA())) & (atomedes.getZ() == (atome.getZ() + 1))) {
@@ -230,7 +223,7 @@ public class Princip {
                         atomedes.setajoutPop(atomedes.getajoutPop() - atome.getajoutPop());
                         ListeElem.set(i, atomedes);
                         At Elec = ListeElem.get(posElec); // trouve �l�m Electron
-                        Elec.setajoutPop(Elec.getajoutPop() - atome.getajoutPop());
+                        Elec.setajoutPop(Elec.getajoutPop() - add);
                         ListeElem.set(posElec, Elec);
                     }
                 }
@@ -240,18 +233,17 @@ public class Princip {
         case 3:
             { //Beta plus
 
-                atome.setajoutPop(atome.getajoutPop() +
-                                  (int) Math.ceil((atome.getpopAct()) *
-                                                  (Math.expm1(-((getdelay()) *
-                                                                (Math.log(2) /
-                                                                 atome.getdVie())))))); // loi decroissance radio N(t)=No*Exp(-At) A=1/dVie
+                double add = Math.ceil((atome.getpopAct()) * (Math.expm1(-((getdelay()) * (Math.log(2) / atome.getdVie())))));
+                atome.setajoutPop(atome.getajoutPop() + add);
+                // loi decroissance radio N(t)=No*Exp(-At) A=1/dVie
+                
                 for (int i = 0; i < ListeElem.size(); i++) {
                     atomedes = ListeElem.get(i);
                     if (atomedes.getA() == (atome.getA()) & atomedes.getZ() == (atome.getZ() - 1)) {
                         atomedes.setajoutPop(atomedes.getajoutPop() - atome.getajoutPop());
                         ListeElem.set(i, atomedes);
                         At Proton = ListeElem.get(posProt); // trouve �l�m Proton
-                        Proton.setajoutPop(Proton.getajoutPop() - atome.getajoutPop());
+                        Proton.setajoutPop(Proton.getajoutPop() - add);
                         ListeElem.set(posProt, Proton);
                     }
                 }
@@ -511,7 +503,10 @@ public class Princip {
     public static void resetButton() {
         fen.dispose();
         stopButton();
-
+        setfinSim(false);
+        ListeElem = new ArrayList();
+        temps = 0;
+        tempsprec = 0;
         Rad = new Princip();
         fen.setjTable1();
     }

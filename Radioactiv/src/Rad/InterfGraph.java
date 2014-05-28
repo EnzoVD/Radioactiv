@@ -108,7 +108,7 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
                 PlayActionPerformed(evt);
             }
         });
-        Play.setBounds(30, 780, 170, 21);
+        Play.setBounds(30, 771, 170, 30);
         jDesktopPane1.add(Play, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         Stop.setText("Fin");
@@ -117,7 +117,7 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
                 StopActionPerformed(evt);
             }
         });
-        Stop.setBounds(460, 780, 160, 21);
+        Stop.setBounds(460, 771, 160, 30);
         jDesktopPane1.add(Stop, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         Pause.setText("Pause/Reprendre");
@@ -126,14 +126,14 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
                 PauseActionPerformed(evt);
             }
         });
-        Pause.setBounds(240, 780, 170, 21);
+        Pause.setBounds(240, 771, 170, 30);
         jDesktopPane1.add(Pause, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTable1.getTableHeader().setReorderingAllowed(false);
         ElementsTable.setViewportView(jTable1);
         //Princip.jtabToPrint(jTable1); //test
 
-        ElementsTable.setBounds(640, 30, 720, 520);
+        ElementsTable.setBounds(640, 30, 720, 610);
         jDesktopPane1.add(ElementsTable, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton1.setText("Test");
@@ -142,7 +142,7 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(660, 780, 55, 21);
+        jButton1.setBounds(830, 780, 55, 21);
         jDesktopPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTextField1.setText("0");
@@ -164,7 +164,7 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
                 jButton2ActionPerformed(evt);
             }
         });
-        jButton2.setBounds(770, 780, 130, 21);
+        jButton2.setBounds(670, 771, 130, 30);
         jDesktopPane1.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jTabbedPane1.setBounds(30, 30, 580, 350);
         jDesktopPane1.add(jTabbedPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -214,13 +214,13 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         jLabel6.setBounds(1270, 820, 80, 14);
         jDesktopPane1.add(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jTextField2.setText("jTextField2");
+        jTextField2.setText("Champ de test");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
-        jTextField2.setBounds(140, 880, 1140, 19);
+        jTextField2.setBounds(670, 650, 500, 19);
         jDesktopPane1.add(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jSliderYear.setMaximum(30);
@@ -290,17 +290,11 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1395, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1396, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
         );
 
         pack();
@@ -351,11 +345,6 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
     private void PauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PauseActionPerformed
         Princip.pauseButton();
     }//GEN-LAST:event_PauseActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        Princip.testButton();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -421,6 +410,11 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         jFormattedTextFieldYear.setValue(year);
     }        // TODO add your handling code here:
     }//GEN-LAST:event_jSliderYearStateChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Princip.testButton();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
