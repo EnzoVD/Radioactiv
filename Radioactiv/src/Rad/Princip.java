@@ -75,7 +75,7 @@ public class Princip {
 
 
     }
-    
+
     public static void main(String[] args) {
         Rad = new Princip();
     }
@@ -134,7 +134,7 @@ public class Princip {
             atome = ListeElem.get(i);
 
             atome.setpopAct(atome.getpopAct() + atome.getajoutPop());
-            if(atome.getA()==238){fen.jTextField2.setText(fen.jTextField2.getText()+"test 2 "+Double.toString(atome.getpopAct()));}
+
             atome.activite();
             atome.addPointAct();
 
@@ -187,15 +187,17 @@ public class Princip {
                 atome.setajoutPop(atome.getajoutPop() +
                                   Math.ceil((atome.getpopAct()) *
                                             (Math.expm1(-((getdelay()) * (Math.log(2) / atome.getdVie()))))));
-                System.out.println("popact "+atome.getpopAct()+"  ajoutpop" + atome.getajoutPop() + "  constante rad " +
-                                   Math.log(2) / atome.getdVie() + "    delay" + delay);
-                if(atome.getA()==238){fen.jTextField2.setText("test 1 "+Double.toString(atome.getpopAct()));}
+                System.out.println("popact " + atome.getpopAct() + "  ajoutpop" + atome.getajoutPop() +
+                                   "  constante rad " + Math.log(2) / atome.getdVie() + "    delay" + delay);
+                if (atome.getA() == 238) {
+                    fen.jTextField2.setText("test 1 " + Double.toString(atome.getpopAct()));
+                }
                 // loi decroissance radio N(t)=No*Exp(-At) A=ln 2/dVie
                 for (int i = 0; i < ListeElem.size(); i++) {
                     atomedes = ListeElem.get(i);
                     if (atomedes.getA() == (atome.getA() - 4) & atomedes.getZ() == (atome.getZ() - 2)) { //trouve le nouvel �l�ment
 
-                        //atome.setpop1(atome.pop2);  //pop1=pop2
+
 
 
 
@@ -283,10 +285,13 @@ public class Princip {
             break;
         case 1:
             { //alpha
-                atome.setajoutPop(atome.getajoutPop() -50);
-                System.out.println("popact "+atome.getpopAct()+"  ajoutpop" + atome.getajoutPop() + "  constante rad " +
-                                   Math.log(2) / atome.getdVie() + "    delay" + delay);
-                if(atome.getA()==238){fen.jTextField2.setText(fen.jTextField2.getText()+"  test 1 "+Double.toString(atome.getpopAct()));}
+                atome.setajoutPop(atome.getajoutPop() - 50);
+                System.out.println("popact " + atome.getpopAct() + "  ajoutpop" + atome.getajoutPop() +
+                                   "  constante rad " + Math.log(2) / atome.getdVie() + "    delay" + delay);
+                if (atome.getA() == 238) {
+                    fen.jTextField2.setText(fen.jTextField2.getText() + "  test 1 " +
+                                            Double.toString(atome.getpopAct()));
+                }
                 // loi decroissance radio N(t)=No*Exp(-At) A=ln 2/dVie
                 for (int i = 0; i < ListeElem.size(); i++) {
                     atomedes = ListeElem.get(i);
@@ -312,7 +317,7 @@ public class Princip {
         case 2:
             { //Beta moins
 
-                atome.setajoutPop(atome.getajoutPop() -32); // loi decroissance radio N(t)=No*Exp(-At) A=1/dVie
+                atome.setajoutPop(atome.getajoutPop() - 32); // loi decroissance radio N(t)=No*Exp(-At) A=1/dVie
                 for (int i = 0; i < ListeElem.size(); i++) {
                     atomedes = ListeElem.get(i);
                     if (((atomedes.getA()) == (atome.getA())) & (atomedes.getZ() == (atome.getZ() + 1))) {
@@ -331,7 +336,7 @@ public class Princip {
         case 3:
             { //Beta plus
 
-                atome.setajoutPop(atome.getajoutPop() -65); // loi decroissance radio N(t)=No*Exp(-At) A=1/dVie
+                atome.setajoutPop(atome.getajoutPop() - 65); // loi decroissance radio N(t)=No*Exp(-At) A=1/dVie
                 for (int i = 0; i < ListeElem.size(); i++) {
                     atomedes = ListeElem.get(i);
                     if (atomedes.getA() == (atome.getA()) & atomedes.getZ() == (atome.getZ() - 1)) {
@@ -425,17 +430,17 @@ public class Princip {
         //n�cessit� de double car valmax int (2 octet) est 2147483647 et que l'on travaille en plusieurs miliards d'ann�es
         String S = "";
         double prov = s;
-        double an = (Math.floor(prov / (365 * 24 * 60  * 60 )));
-        prov = prov - an * 365 * 24 * 60  * 60 ;
-        double jours = (Math.floor(prov / (24 * 60  * 60 )));
-        
-        prov = prov - jours * 24 * 60  * 60 ;
-        
-        double heur = (Math.floor(prov / (60  * 60 )));
-        
-        prov = prov - heur * 60*60;
+        double an = (Math.floor(prov / (365 * 24 * 60 * 60)));
+        prov = prov - an * 365 * 24 * 60 * 60;
+        double jours = (Math.floor(prov / (24 * 60 * 60)));
+
+        prov = prov - jours * 24 * 60 * 60;
+
+        double heur = (Math.floor(prov / (60 * 60)));
+
+        prov = prov - heur * 60 * 60;
         double min = (Math.floor(prov / (60)));
-        
+
         prov = prov - min * 60;
         double sec = (Math.floor(prov));
         if (an != 0.0) {
@@ -485,7 +490,7 @@ public class Princip {
             fen.setjPAct(atome.getnom(), atome.tabXAct(), atome.tabYAct());
             fen.setjPPop(atome.getnom(), atome.tabXPop(), atome.tabYPop());
             double deltaT = (temps - tempsprec);
-            
+
 
             fen.revalidate();
         }
@@ -495,7 +500,12 @@ public class Princip {
      * Impl�mentation Boutons
      */
     public static void testButton() {
-       
+        for (int i = 0; i < ListeElem.size(); i++) {
+            At atome = ListeElem.get(i);
+            atome.setpopIni(10000000);
+            atome.setpopAct(10000000);
+            ListeElem.set(i, atome);
+        }
     }
 
     public static void resetButton() {
@@ -601,7 +611,7 @@ public class Princip {
     public static void setdelay(double d) {
         delay = d;
     }
-    
+
     public static double getTempsPrec() {
         return tempsprec;
     }
@@ -624,12 +634,9 @@ public class Princip {
     }
 
 
-    
     public void afficheTemps() {
         fen.textsetjTextField1(secToTime(temps));
     }
-
-   
 
 
     //fonctions de test de bon remplissage des tableaux
@@ -679,7 +686,6 @@ public class Princip {
         }
         return count;
     }
-
 
 
     public void testTimer() {

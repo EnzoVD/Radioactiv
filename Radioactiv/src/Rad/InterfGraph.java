@@ -37,7 +37,6 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
     public InterfGraph() {
         initComponents();
         customInitComponents();
-        getDelayAffiche();
         PropertyChangeListener delayListener = new PropertyChangeListener() {
             public void propertyChange(PropertyChangeEvent e) {
                 Object source = e.getSource();
@@ -320,8 +319,12 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         jPActLayout.setVerticalGroup(jPActLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0,
                                                                                                                        327,
                                                                                                                        Short.MAX_VALUE));
+        
+        jPAct.setAxisLabel(0, "     Temps (sec)");
+        jPAct.setAxisLabel(1, "Activité (1/sec)");
         jPAct.setVisible(true);
-        System.out.println("JPact Initialisé");
+        
+        
 
         jPPop.setLayout(jPPopLayout);
         jPPopLayout.setHorizontalGroup(jPPopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0,
@@ -330,8 +333,10 @@ public class InterfGraph extends javax.swing.JFrame implements TableModelListene
         jPPopLayout.setVerticalGroup(jPPopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0,
                                                                                                                        327,
                                                                                                                        Short.MAX_VALUE));
+        jPPop.setAxisLabel(0, "      Temps (sec)");
+        jPPop.setAxisLabel(1, "Population");
         jPPop.setVisible(true);
-        System.out.println("JPop Initialisé");
+       
 
 
     }

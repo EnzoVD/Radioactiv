@@ -10,10 +10,8 @@ public class At {
     protected int Z;
     protected int N;
     protected int type;
-    protected double pop2;
     protected double popAct;
     protected double ajoutPop;
-    protected double pop1;
     protected double popIni;
     protected boolean affiche;
     protected double activite;
@@ -56,20 +54,12 @@ public class At {
         return type;
     }
 
-    public double getpop2() {
-        return pop2;
-    }
-    
     public double getpopAct() {
         return popAct;
     }
     
     public double getajoutPop() {
         return ajoutPop;
-    }
-
-    public double getpop1() {
-        return pop1;
     }
 
     public double getpopIni() {
@@ -108,20 +98,12 @@ public class At {
         type = p;
     }
 
-    public void setpop2(double p2) {
-        pop2 = p2;
-    }
-    
     public void setpopAct(double pa) {
         popAct = pa;
     }
 
     public void setajoutPop(double aj) {
         ajoutPop = aj;
-    }
-
-    public void setpop1(double p1) {
-        pop1 = p1;
     }
 
     public void setpopIni(double pi) {
@@ -132,10 +114,6 @@ public class At {
         affiche = a;
     }
 
-    /*   public abstract double getdVie();
-
-    public abstract void setdVie(double d);
-*/
 
     public double getactivite() {
         return activite;
@@ -161,7 +139,7 @@ public class At {
     
     
     public void toPrint(){
-       System.out.println(this.nom+" abr:"+this.abr+" A:"+this.A+" Type:"+this.type+" Demie Vie:"+this.dVie+" popIni"+this.popIni+"pop1 "+this.pop1+"pop2 "+this.pop2+ "pop2 "+this.popAct);
+       System.out.println(this.nom+" abr:"+this.abr+" A:"+this.A+" Type:"+this.type+" Demie Vie:"+this.dVie+" popIni"+this.popIni+"popact "+this.popAct);
        
     }
     

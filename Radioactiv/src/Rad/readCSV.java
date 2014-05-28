@@ -81,8 +81,6 @@ int count=0;
                 if(count==1){atRObjet.setaffiche(true);}
                 else{atRObjet.setaffiche(false);}
                 atRObjet.setpopIni(0);
-                atRObjet.setpop1(0);
-                atRObjet.setpop2(0);
                 atRObjet.setajoutPop(0);
                 ListeElem.add(atRObjet);
 
