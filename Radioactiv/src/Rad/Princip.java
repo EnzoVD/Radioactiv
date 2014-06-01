@@ -469,7 +469,7 @@ public class Princip {
             Type = "Beta+";
             break;
         case 4:
-            Type = "gamma";
+            Type = "Gamma";
             break;
         }
         return Type;
